@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://cdn.jsdelivr.net/npm/vue@2/dist/vue.js"></script>
+</head>
+<body>
+    <div id="task">
+        <h1>Задание 2</h1>
+        <p>Товаров в корзине: {{ counter }}</p>
+        <button 
+            v-for="button in buttons" 
+            @click="onClick(button)" 
+            :key="button.id"
+        >
+            {{ button.inCart ? 'Товар в корзине' : 'Купить' }}
+        </button>
+
+        <h1>Задание 3</h1>
+        <p v-if="isAllowed">Доступ открыт</p>
+        <p v-else>Доступ закрыт</p>
+
+        <button @click="isAllowed = true">Мне исполнилось 14 лет</button>
+        <button @click="isAllowed = false">Мне еще нет 14 лет</button>
+        
+        <h1>Задание 4</h1>
+        <button @click="toggle()">{{ isShown ? 'Скрыть' : 'Показать' }}</button>
+        <p v-if="isShown">Lorem, ipsum dolor sit amet consectetur adipisicing elit. Distinctio, a.</p>
+        <p v-show="isShown">Lorem, ipsum dolor sit amet consectetur adipisicing elit. Distinctio, a.</p>
+        
+        <h1>Задание 5</h1>
+        <button @click="randomNumber()">Сгенерировать случайное число</button>
+        <p>{{ number }}</p>
+        <p>{{ numberText }}</p>
+    </div>
+
+    <script>
+        new Vue({
+            el: '#task',
+            data: {
+                counter: 0,
+                buttons: [
+                    {id: 1, inCart: false},
+                    {id: 2, inCart: false},
+                    {id: 3, inCart: false},
+                    {id: 4, inCart: false},
+                ],
+                isAllowed: false,
+                isShown: false,
+                number: 0,
+            },
+            computed: {
+                numberText() {
+                    if (this.number < 5) {
+                        return 'Число < 5';
+
+                    } else if (this.number <=9) {
+                        return 'Число от 5 до 9';
+
+                    } else {
+                        return 'Число равно 10';
+                    }
+                },
+            },
+            methods: {
+                onClick(button) {
+                    if (!button.inCart) {
+                        this.counter++;
+                        button.inCart = true;
+                    }
+                },
+                toggle() {
+                    this.isShown = !this.isShown;
+                },
+                randomNumber() {
+                    this.number = Math.round(Math.random() * 10);
+                },
+            },
+        })
+    </script>
+</body>
+</html>

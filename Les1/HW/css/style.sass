@@ -1,0 +1,399 @@
+@import 'vars'
+
+*
+    padding: 0
+    margin: 0
+    box-sizing: border-box
+
+a
+    text-decoration: none
+
+.homeWork
+    height: 400px
+    background-color: $titleColor
+    font-size: 30px
+    color: #f0f0f0
+
+    button
+        font-size: 30px
+
+.top
+    position: relative
+
+.center
+    padding-left: calc(50% - $widthSite / 2)
+    padding-right: calc(50% - $widthSite / 2)
+
+.background
+    position: absolute
+    display: flex
+    justify-content: center
+    height: 100%
+    width: 1200px
+    left: calc(50% - $widthSite / 2)
+    border-left: 1px solid #E6E6E6
+    border-right: 1px solid #E6E6E6
+    z-index: -1
+
+    &_lines
+        width: 400px
+        border-left: 1px solid #E6E6E6
+        border-right: 1px solid #E6E6E6
+        z-index: -1
+
+.header
+    display: flex
+    justify-content: space-between
+    align-items: center
+    padding-top: 53px
+
+    &_right
+        display: flex
+        justify-content: space-between
+        width: 243px
+
+        &__link
+            color: $titleColor
+            text-align: center
+            font-family: Jost
+            font-size: 20px
+            font-style: normal
+            font-weight: 400
+
+.banner
+    margin-top: 57px
+
+    &_description
+        display: flex
+        align-items: flex-start
+        flex-direction: column
+        justify-content: center
+
+        background-image: url(../img/banner_photo.png)
+        background-repeat: no-repeat
+        background-size: cover
+        border-radius: 50px
+
+        height: 758px
+
+        &_info
+            display: flex
+            width: 472px
+            flex-direction: column
+            align-items: flex-start
+            gap: 21px
+            padding-left: 52px
+
+            &__head
+                color: $titleColor
+                font-family: DM Serif Display
+                font-size: 65px
+                font-style: normal
+                font-weight: 400
+
+            &__text
+                color: $textColor
+                font-family: Jost
+                font-size: 22px
+                font-style: normal
+                font-weight: 400
+
+            &__startButton
+                color: #FFF
+                font-family: Jost
+                font-size: 18px
+                font-weight: 600
+
+                padding: 26px 49px 26px 48px
+
+                border-radius: 18px
+                background: $titleColor
+                box-shadow: 0px 10px 20px 0px rgba(192, 192, 192, 0.35)
+
+.main
+    margin-top: 96px
+    margin-bottom: 96px
+
+    &_header
+        display: flex
+        flex-direction: column
+        text-align: center
+        align-items: center
+        margin-bottom: 93px
+
+        &__title
+            color: $titleColor
+            text-align: center
+            font-family: DM Serif Display
+            font-size: 50px
+            font-style: normal
+            font-weight: 400
+            line-height: 125%
+            letter-spacing: 1px
+
+        &__text
+            color: $textColor
+            text-align: center
+            font-family: Jost
+            font-size: 22px
+            font-style: normal
+            font-weight: 400
+            line-height: 150%
+            letter-spacing: 0.22px
+            width: 737px
+
+    &_box
+        display: flex
+        flex-direction: column
+        gap: 56px
+
+        &_line
+            display: flex
+            justify-content: space-between
+
+            &_product
+                display: flex
+                flex-direction: column
+                gap: 24px
+                width: 548px
+
+                .first_product
+                    border-top-right-radius: 50px
+
+                .second_product
+                    border-top-left-radius: 50px
+
+                .third_product
+                    border-bottom-right-radius: 50px
+
+                .fourth_product
+                    border-bottom-left-radius: 50px
+
+                &_description
+                    display: flex
+                    align-items: center
+                    justify-content: space-between
+
+                    &_text
+                        &__title
+                            color: $titleColor
+                            font-family: DM Serif Display
+                            font-size: 25px
+                            font-style: normal
+                            font-weight: 400
+                            line-height: 125%
+                            letter-spacing: 0.5px
+
+                        &__text
+                            color: $textColor
+                            font-family: Jost
+                            font-size: 22px
+                            font-style: normal
+                            font-weight: 400
+                            line-height: 150%
+                            letter-spacing: 0.22px
+
+.experience
+    display: flex
+    justify-content: center
+    background-color: #F4F0EC
+
+    height: 457px
+    margin-bottom: 96px
+
+    &_numbers
+        display: flex
+        align-items: center
+        gap: 76px
+
+        &_unik:not(:last-child)
+            border-right: 1px solid #CDA274
+
+        &_unik
+            display: flex
+            flex-direction: column
+            align-items: center
+            padding-right: 54px
+
+            &__number
+                color: #CDA274
+                font-family: DM Serif Display
+                font-size: 85px
+                font-style: normal
+                font-weight: 400
+                line-height: 125%
+                letter-spacing: 1.7px
+
+            &__text
+                color: $textColor
+                font-family: Jost
+                font-size: 22px
+                font-style: normal
+                font-weight: 400
+                line-height: 150%
+                letter-spacing: 0.22px
+
+.news
+    margin-bottom: 96px
+
+    &_header
+        display: flex
+        flex-direction: column
+        text-align: center
+        align-items: center
+        padding-bottom: 52px
+
+        &__title
+            color: $titleColor
+            text-align: center
+            font-family: DM Serif Display
+            font-size: 50px
+            font-style: normal
+            font-weight: 400
+            line-height: 125%
+            letter-spacing: 1px
+
+        &__text
+            color: $textColor
+            text-align: center
+            font-family: Jost
+            font-size: 22px
+            font-style: normal
+            font-weight: 400
+            line-height: 150%
+            letter-spacing: 0.22px
+            width: 811px
+
+    &_box
+        display: grid
+        grid-template-columns: repeat(3, 1fr)
+        gap: 23px
+        justify-items: center
+
+        &_element
+            position: relative
+            padding: 21px
+            width: auto
+
+            border-radius: 62px
+            border: 1px solid #E7E7E7
+            box-shadow: 0px 10px 30px 0px rgba(255, 255, 255, 0.25)
+
+            &:hover
+                background-color: #F4F0EC
+
+            &:hover circle
+                fill: #FFF
+
+            &__img
+                border-radius: 45px 45px 0px 0px
+
+            &__link
+                position: absolute
+                left: 41px
+                top: 249px
+
+                color: $textColor
+                font-family: Jost
+                font-size: 16px
+                font-style: normal
+                font-weight: 400
+                line-height: 150%
+                letter-spacing: 0.16px
+                text-transform: capitalize
+
+                border-radius: 8px 8px 8px 0px
+                background: #FFF
+                padding: 10px
+
+            &__title
+                color: $titleColor
+                font-family: DM Serif Display
+                font-size: 25px
+                font-style: normal
+                font-weight: 400
+                line-height: 125%
+                letter-spacing: 0.5px
+                padding-top: 21px
+                padding-bottom: 30px
+
+            &_description
+                display: flex
+                justify-content: space-between
+                align-items: center
+
+                &__text
+                    color: $textColor
+                    font-family: Jost
+                    font-size: 16px
+                    font-style: normal
+                    font-weight: 400
+                    line-height: 150%
+                    letter-spacing: 0.16px
+                    text-transform: capitalize
+
+.footer
+    display: flex
+    padding-bottom: 134px
+
+    &_main
+        padding-right: 101px
+        &__text
+            color: $textColor
+            font-family: Jost
+            font-size: 22px
+            font-style: normal
+            font-weight: 400
+            line-height: 150%
+            letter-spacing: 0.22px
+            padding-bottom: 31px
+            width: 393px
+
+        &_socials
+            display: flex
+            gap: 54px
+
+    &_pages
+        display: flex
+        flex-direction: column
+        padding-right: 380px
+
+        &__head
+            color: $titleColor
+            font-family: DM Serif Display
+            font-size: 25px
+            font-style: normal
+            font-weight: 400
+            line-height: 125%
+
+        &__link
+            color: $textColor
+            font-family: Jost
+            font-size: 22px
+            font-style: normal
+            font-weight: 400
+            line-height: 300%
+            letter-spacing: 0.22px
+
+    &_contacts
+        display: flex
+        flex-direction: column
+        gap: 25px
+
+        &__head
+            color: $titleColor
+            font-family: DM Serif Display
+            font-size: 25px
+            font-style: normal
+            font-weight: 400
+            line-height: 125%
+
+        &__text
+            color: $textColor
+            font-family: Jost
+            font-size: 22px
+            font-style: normal
+            font-weight: 400
+            line-height: 150%
+            letter-spacing: 0.22px
+            width: 258px
