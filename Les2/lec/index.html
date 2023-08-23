@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .block {
+            width: 350px;
+            height: 200px;
+        }
+        .block2 {
+            width: 350px;
+            height: 200px;
+        }
+        .btn {
+            width: 35px;
+            height: 35px;
+        }
+        .like {
+            color: red;
+        }
+    </style>
+</head>
+<body>
+    <div id="app">
+                      <!-- @keyup.space="send()" -->
+        <input type="text" @keyup.enter="send()"> <button @click="send()">Отправить</button>
+
+
+        <h2>Link elem</h2>
+        <a :href="linkHref">me new link</a>
+        <img :src="imgPhoto" alt="photo">
+
+        
+        <div class="block" :style="styleBlock">
+            Lorem ipsum dolor sit amet.
+        </div>
+
+
+        <h2>{{ modelData }}</h2>
+        <input type="text" v-model.lazy="modelData">
+        <button @click="headingText" class="heading__button">click heading</button>
+
+
+        <h2>калькулятор</h2>
+        <input type="text" v-model.number="firstNumber">
+        <input type="text" v-model.number="secondNumber">
+        =
+        {{ result }}
+        <div>
+            <button @click="plus">+</button>
+            <button @click="minus">-</button>
+            <button @click="mult">*</button>
+            <button @click="div">/</button>
+        </div>
+
+
+        <h2>конструктор</h2>
+        <input type="text" v-model="blockWidth">
+        <input type="text" v-model="blockColor">
+        <div class="block2" :style="change">
+            Lorem ipsum dolor sit amet.
+        </div>
+
+
+        <h2>list</h2>
+        <ul>
+            <li v-for="item in listItem" :key="item.id">{{ item }}</li>
+        </ul>
+        <input type="text" v-model="newList" @keyup.enter="addItem">
+
+
+        <article v-for="article in data" :key="article.id" class="article">
+            <h2 class="article__title">{{ article.title }}</h2>
+            <p class="article__text">{{ article.text }}</p>
+            <button class="btn" @click="likeToggle = !likeToggle" :class="{like: likeToggle}">like</button>
+        </article>
+    </div>
+
+
+    <script src="https://cdn.jsdelivr.net/npm/vue@2/dist/vue.js"></script>
+    <script>
+        new Vue({
+            el: '#app',
+            data: {
+                linkHref: 'index.html',
+                imgPhoto: 'photo.jpg',
+                styleBlock: {
+                    backgroundColor: 'green',
+                    color: 'red',
+                },
+                modelData: '',
+                firstNumber: 0,
+                secondNumber: 0,
+                result: 0,
+                blockWidth: 100,
+                blockColor: '#ccc',
+                listItem: [1, 2, 4],
+                newList: '',
+                data: [
+                    {
+                        title: 'title text',
+                        text: 'description text info element',
+                    },
+                    {
+                        title: 'new title text',
+                        text: 'new description text info element',
+                    },
+                ],
+                likeToggle: true,
+            },
+            methods: {
+                headingText() {
+                    if (this.modelData === '') {
+                        this.modelData = 'Заголовок для input';
+                    }
+                },
+                send() {
+                    console.log('Отправили данные внутри input');
+                },
+                plus() {
+                    this.result = this.firstNumber + this.secondNumber;
+                },
+                minus() {
+                    this.result = this.firstNumber - this.secondNumber;
+                },
+                mult() {
+                    this.result = this.firstNumber * this.secondNumber;
+                },
+                div() {
+                    this.result = this.firstNumber / this.secondNumber;
+                },
+                addItem() {
+                    this.listItem.push(this.newList);
+                },
+            },
+            computed: {
+                change() {
+                    return {
+                        width: `${this.blockWidth}px`,
+                        height: `${this.blockWidth}px`,
+                        backgroundColor: this.blockColor,
+                    }
+                }
+            }
+        })
+    </script>
+</body>
+</html>

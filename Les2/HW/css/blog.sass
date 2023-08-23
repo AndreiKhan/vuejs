@@ -1,0 +1,137 @@
+@import 'vars'
+
+.title
+    display: flex
+    align-items: flex-end
+    justify-content: center
+
+    height: 356px
+    background-image: url(../img/banner_photo2.png)
+    background-repeat: no-repeat
+    background-size: cover
+    background-position: 25% 0
+
+    &_name
+        display: flex
+        flex-direction: column
+        align-items: center
+
+        padding: 41px 78px
+        border-radius: 37px 37px 0px 0px
+        background-color: #FFF
+
+        &__head
+            color: $titleColor
+            font-family: DM Serif Display
+            font-size: 50px
+            font-style: normal
+            font-weight: 400
+            line-height: 125%
+
+        &__text
+            color: $textColor
+            font-family: Jost
+            font-size: 22px
+            font-style: normal
+            font-weight: 400
+            line-height: 150%
+            letter-spacing: 0.22px
+
+.latestPost
+
+    padding-top: 200px
+
+    &__title
+        color: $titleColor
+        font-family: DM Serif Display
+        font-size: 50px
+        font-style: normal
+        font-weight: 400
+        line-height: 125%
+        letter-spacing: 1px
+        padding-bottom: 27px
+
+    &_description
+        display: flex
+        gap: 65px
+        padding: 22px
+        margin-bottom: 150px
+        border-radius: 62px
+        border: 1px solid $borderColor
+        box-shadow: 0px 10px 30px 0px rgba(255, 255, 255, 0.25)
+
+        &__img
+            border-radius: 50px
+
+        &_text
+            display: flex
+            flex-direction: column
+            justify-content: center
+            width: 469px
+
+            &__head
+                color: $titleColor
+                font-family: DM Serif Display
+                font-size: 25px
+                font-style: normal
+                font-weight: 400
+                line-height: 125%
+                letter-spacing: 0.5px
+                padding-bottom: 22px
+
+            &__text
+                color: $textColor
+                font-family: Jost
+                font-size: 22px
+                font-style: normal
+                font-weight: 400
+                line-height: 150%
+                letter-spacing: 0.22px
+                padding-bottom: 41px
+
+            &_info
+                display: flex
+                justify-content: space-between
+                align-items: center
+
+                &__date
+                    color: $textColor
+                    font-family: Jost
+                    font-size: 16px
+                    font-style: normal
+                    font-weight: 400
+                    line-height: 150%
+                    letter-spacing: 0.16px
+                    text-transform: capitalize
+
+.news
+    margin-bottom: 200px
+
+    &_header
+        align-items: flex-start
+        padding-bottom: 30px
+
+    &_footer
+        display: flex
+        justify-content: center
+        padding-top: 51px
+
+        &_pages
+            display: flex
+            gap: 20px
+
+            &__link
+                position: relative
+
+                &__page
+                    position: absolute
+                    left: 17px
+                    top: 15px
+
+                    color: $textColor
+                    font-family: Jost
+                    font-size: 16px
+                    font-style: normal
+                    font-weight: 500
+                    line-height: 150%
+                    text-transform: capitalize
