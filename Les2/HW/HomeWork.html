@@ -45,10 +45,10 @@
             },
             methods: {
                 sortUpPrice() {
-                    return this.products.sort((a, b) => a.price > b.price ? 1 : -1);
+                    this.products.sort((a, b) => a.price - b.price);
                 },
                 sortDownPrice() {
-                    return this.products.sort((a, b) => a.price > b.price ? -1 : 1);
+                    this.products.sort((a, b) => b.price - a.price);
                 },
             }
         });
