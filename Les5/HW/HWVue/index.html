@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://cdn.jsdelivr.net/npm/vue@2/dist/vue.js"></script>
+    <style>
+        * {
+            padding: 0;
+            margin: 0;
+        }
+        .product {
+            border: 1px solid black;
+            width: 100px;
+            height: 130px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: space-evenly;
+        }
+    </style>
+</head>
+<body>
+    <div id="home" class="homeWork">
+        <product-details></product-details>
+    </div>
+    
+    <script>
+        Vue.component('product-details', {
+            data() {
+                return {
+                    product: {
+                        name: 'Product',
+                        price: 99.99,
+                        available: true,
+                    },
+                }
+            },
+
+            computed: {
+                formattedPrice() {
+                    return `$${this.product.price}`;
+                }
+            },
+
+            template: `
+                <div class="product">
+                    <p class="product__name">{{ product.name }}</p>
+                    <p class="product__price">{{ formattedPrice }}</p>
+                    <p class="product__stock" v-if="product.available">Available</p>
+                    <p class="product__stock" v-if="!product.available">Out of stock</p>
+                </div>
+            `,
+        });
+
+        new Vue({
+            el: '#home',
+        });
+    </script>
+</body>
+</html>
