@@ -2,8 +2,8 @@ Vue.component('blog', {
     props: ['news'],
 
     methods: {
-        detailes(blog) {
-            this.$emit('detailes', blog)
+        detailes(id) {
+            this.$emit('detailes', id)
         }
     },
 

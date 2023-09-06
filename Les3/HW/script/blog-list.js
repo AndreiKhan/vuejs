@@ -52,6 +52,7 @@ Vue.component('blog-list', {
                 },
             ],
             filterTag: '',
+            detailedBlog: 1,
         }
     },
 
@@ -66,39 +67,39 @@ Vue.component('blog-list', {
             this.filterTag = tag;
         },
 
-        detailes(blog) {
-            this.detailedBlog = blog;
+        detailes(id) {
+            this.detailedBlog = id;
         }
     },
 
     template: `
         <main class="blog center">
             <section class="blog_details">
-                <blog-details
-                :news="news"
-                ></blog-details>
 
-                
-                <div class="news_header">
-                    <h1 class="news_header__title">Articles & News</h1>
-                </div>
-
+                <slot name="blogDetails">
+                    <blog-details
+                        :news="news"
+                        :detailedBlog="detailedBlog">
+                    </blog-details>
+                </slot>
+    
                 <div class="news_box">
-                    <blog
-                    v-for="item in filteredList"
-                    :news="item"
-                    @detailes="detailes"
-                    :key="item.id"
-                    ></blog>
+
+                    <slot name="blog">
+                        <blog
+                            v-for="item in filteredList"
+                            :news="item"
+                            @detailes="detailes"
+                            :key="item.id"
+                        ></blog>
+                    </slot>
                 </div>
             </section>
 
-            <div class="blog_tags">
-                <h1 class="blog_tags__title">Tags</h1>
-
+            <slot name="tags">
                 <tags
-                @filteredTag="filteredTag"
+                    @filteredTag="filteredTag"
                 ></tags>
-            </div>
+            </slot>
         </main>`,
 });

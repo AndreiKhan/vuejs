@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://cdn.jsdelivr.net/npm/vue@2/dist/vue.js"></script>
+    <script src="script/blog.js"></script>
+    <script src="script/blog-details.js"></script>
+    <script src="script/blog-list.js"></script>
+    <script src="script/tags.js"></script>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/blog.css">
+    <link rel="stylesheet" href="css/blogDetails.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display&family=Jost:wght@400;600&display=swap" rel="stylesheet">  
+</head>
+
+<body>
+    <div id="app" class="top">
+
+
+        <blog-list>
+                <div>
+                    <!-- blogdetails -->
+                    <div slot="blogDetails"></div> 
+                    
+                    <!-- blog -->
+                    <div slot="blog"></div>
+                    
+                    <!-- tags -->
+                    <div slot="tags"></div>
+                </div>
+        </blog-list>
+    </div>
+
+    <script>
+        new Vue({
+            el: '#app',
+            data: {},
+        })
+    </script>
+</body>
+</html>

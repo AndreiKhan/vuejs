@@ -1,19 +1,13 @@
 Vue.component('blog-details', {
-    props : ['news'],
-
-    data() {
-        return {
-            blog: this.news[0],
-        }
-    },
-
+    props : ['news', 'detailedBlog'],
+    
     template: `
         <section class="blog_details_description">
-            <h1 class="blog_details_description__title">{{ blog.title }}</h1>
+            <h1 class="blog_details_description__title">{{ this.news[this.detailedBlog - 1].title }}</h1>
             <img class="blog_details_description__titleImg" src="img/blog_photo1.png" alt="blog_photo">
 
             <div class="blog_details_description_info">
-                <p class="blog_details_description_info__date">{{ blog.date }}</p>
+                <p class="blog_details_description_info__date">{{ this.news[this.detailedBlog - 1].date }}</p>
                 <p class="blog_details_description_info__bread">Interior / Home / Decore</p>
             </div>
 

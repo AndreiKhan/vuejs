@@ -1,36 +1,67 @@
 Vue.component('tags', {
     data() {
         return {
-            //Существующие теги
-            designs: ['Kitchen', 'Bedroom', 'Building', 'Architecture', 'Kitchen Planning', 'Bathroom'],
-            // выбранный тег
+            designs: [
+                {
+                    tag: 'Kitchen',
+                    isActive: false,
+                },
+                {
+                    tag: 'Bedroom',
+                    isActive: false,
+                },
+                {
+                    tag: 'Building',
+                    isActive: false,
+                },
+                {
+                    tag: 'Architecture',
+                    isActive: false,
+                },
+                {
+                    tag: 'Kitchen Planning',
+                    isActive: false,
+                },
+                {
+                    tag: 'Bathroom',
+                    isActive: false,
+                },
+            ],
             tag: '',
         }
     },
 
-    computed: {
-
-    },
-
     methods: {
-        filteredTag(tag) {
-            // если выбран тот же тег сбрасываем тег и показываем все блоги
-            if(this.tag === tag) {
-                this.$emit('filteredTag', '')
+        filteredTag(design) {
+            if(this.tag === design.tag) {
+                this.$emit('filteredTag', '');
+                this.tag = '';
+
             } else {
-                this.$emit('filteredTag', tag)
+                this.$emit('filteredTag', design.tag);
+                this.tag = design.tag;
             }
-            this.tag = tag;
+            
+            this.designs.forEach(tag => {
+                if (tag.tag === this.tag) {
+                    tag.isActive = !tag.isActive
+                } else {
+                    tag.isActive = false
+                }
+            });
         },
     },
 
-    // class="blog_tags_filters__button"
     template: `
-        <div class="blog_tags_filters">
-            <button v-for="tag in designs" 
-            @click="filteredTag(tag)" 
-            :key="tag.id" 
-            class="blog_tags_filters__button" 
-            >{{ tag }}</button>
+        <div class="blog_tags">
+            <h1 class="blog_tags__title">Tags</h1>
+
+            <div class="blog_tags_filters">
+                <button v-for="design in designs" 
+                @click="filteredTag(design)" 
+                class="blog_tags_filters__button" 
+                :class="{'clicked': design.isActive}"
+                >{{ design.tag }}</button>
+            </div>
         </div>`,
 });
