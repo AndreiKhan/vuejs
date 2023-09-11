@@ -1,6 +1,7 @@
 <template>
     <div class="filter center">
         <div class="categories">
+            
             <button v-for="cater in categories" 
                 @click="filteredCategorie(cater)" 
                 class="categories__button" 
@@ -15,8 +16,6 @@
 <script>
 export default {
     name: 'CategoriesButtons',
-
-    props: [],
 
     data() {
         return {
@@ -82,6 +81,7 @@ export default {
             font-weight: 600
             line-height: 125%
             letter-spacing: 0.36px
+            transition: all 0.3s
 
     .clicked
         color: #FFF

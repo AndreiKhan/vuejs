@@ -1,9 +1,5 @@
 <template>
-    <div class="top">
-        <div class="background">
-            <div class="background_lines"></div>
-        </div>
-        
+    <div>
         <header class="header center">
             <div class="header_left">
                 <a class="header_left__link" href="#">
@@ -47,27 +43,18 @@
             </div>
         </section>
 
-        <section id="news" class="news center">
+        <section class="news center">
             <div class="news_header">
                 <h1 class="news_header__title">Articles & News</h1>
             </div>
 
             <div class="news_box">
-                <div v-for="el in news" :key="el.id" class="news_box_element">
-                    <img class="news_box_element__img" :src="require(`@/assets/${el.img}`)" alt="news_photo">
-                    <a class="news_box_element__link"  href="#">{{ el.design }}</a>
-
-                    <h2 class="news_box_element__title">{{ el.title }}</h2>
-
-                    <div class="news_box_element_description">
-                        <p class="news_box_element_description__text">{{ el.date }}</p>
-                        <a class="news_box_element_description__link" href="#"><svg width="52" height="53" viewBox="0 0 52 53" fill="none" xmlns="http://www.w3.org/2000/svg">
-                            <circle cx="26" cy="26.267" r="26" fill="#F4F0EC"/>
-                            <path d="M23.7714 32.9527L29.7143 26.267L23.7714 19.5813" stroke="#292F36" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-                            </svg>
-                        </a>
-                    </div>
-                </div>
+                
+                <NewsList
+                v-for="item in news"
+                :news="item"
+                :key="item.id"
+                />
             </div>
 
             <footer class="news_footer">
@@ -103,7 +90,7 @@
 
         <footer class="footer center">
             <div class="footer_main">
-                <a class="footer_main__link" href="index.html">
+                <a class="footer_main__link" href="#">
                     <img class="footer_main__link__logo logo" src="../assets/logo.svg" alt="Logo">
                 </a>
 
@@ -140,8 +127,10 @@
 </template>
 
 <script>
+import NewsList from './NewsList.vue';
+
 export default {
-    name: 'VueJsBlogPage',
+    name: 'BlogPage',
 
     data() {
         return {
@@ -182,17 +171,13 @@ export default {
                     title: 'Best For Any Office & Business Interior Solution',
                     date: '25 December,2022',
                 },
-           ],
+            ],
         };
     },
 
-    mounted() {
-        
-    },
-
-    methods: {
-        
-    },
+    components: { 
+        NewsList, 
+    }
 };
 </script>
 
@@ -201,7 +186,6 @@ export default {
     display: flex
     align-items: flex-end
     justify-content: center
-
     height: 356px
     background-image: url(../assets/banner_photo2.png)
     background-repeat: no-repeat
@@ -212,7 +196,6 @@ export default {
         display: flex
         flex-direction: column
         align-items: center
-
         padding: 41px 78px
         border-radius: 37px 37px 0px 0px
         background-color: #FFF
@@ -224,7 +207,7 @@ export default {
             font-style: normal
             font-weight: 400
             line-height: 125%
-
+            
         &__text
             color: #4D5053
             font-family: Jost
@@ -235,7 +218,6 @@ export default {
             letter-spacing: 0.22px
 
 .latestPost
-
     padding-top: 200px
 
     &__title
@@ -302,11 +284,26 @@ export default {
                     text-transform: capitalize
 
 .news
-    margin-bottom: 200px
+    padding-bottom: 200px
 
     &_header
         align-items: flex-start
         padding-bottom: 30px
+
+        &__title
+            color: #292F36
+            font-family: DM Serif Display
+            font-size: 50px
+            font-style: normal
+            font-weight: 400
+            line-height: 125%
+            letter-spacing: 1px
+
+    &_box
+        display: grid
+        grid-template-columns: repeat(3, 1fr)
+        gap: 22px
+        justify-items: center
 
     &_footer
         display: flex

@@ -1,14 +1,11 @@
 <template>
-    <div class="top">
-        <div class="background">
-            <div class="background_lines"></div>
-        </div>
-
+    <div>
         <HeaderTitle :title="'Our Project'" :page="'Home / Project'" :active="true"/>
 
         <CategoriesButtons @filteredCategorie="filteredCategorie"/>
 
         <div class="projects_box center">
+            
             <ProjectList
                 v-for="item in filteredList"
                 :project="item"
@@ -133,16 +130,16 @@
                     },
                     {
                         id: 9,
-                        img: 'project8.png',
+                        img: 'project2.png',
                         categorie: 'Bathroom',
                         title: 'Bathroom',
                         type: 'Decor / Architecture',
                         tag: ['Bathroom'],
-                        favorite: false,
+                        favorite: true,
                     },
                     {
                         id: 10,
-                        img: 'project8.png',
+                        img: 'project3.png',
                         categorie: 'Bathroom',
                         title: 'Bathroom',
                         type: 'Decor / Architecture',
@@ -151,7 +148,7 @@
                     },
                     {
                         id: 11,
-                        img: 'project8.png',
+                        img: 'project2.png',
                         categorie: 'Kitchan',
                         title: 'Kitchan',
                         type: 'Decor / Architecture',
@@ -160,21 +157,21 @@
                     },
                     {
                         id: 12,
-                        img: 'project8.png',
+                        img: 'project6.png',
                         categorie: 'Kitchan',
                         title: 'Kitchan',
                         type: 'Decor / Architecture',
                         tag: ['Kitchan'],
-                        favorite: false,
+                        favorite: true,
                     },
                     {
                         id: 13,
-                        img: 'project8.png',
+                        img: 'project7.png',
                         categorie: 'Living Area',
                         title: 'living Area',
                         type: 'Decor / Architecture',
                         tag: ['Living Area'],
-                        favorite: false,
+                        favorite: true,
                     },
                     {
                         id: 14,
@@ -183,7 +180,7 @@
                         title: 'Living Area',
                         type: 'Decor / Architecture',
                         tag: ['Living Area'],
-                        favorite: false,
+                        favorite: true,
                     },
                 ],
                 filterTag: 'Bed Room',
@@ -214,34 +211,34 @@
     };
 </script>
 
-<style lang="sass">
-    .projects_box
-        display: grid
-        grid-template-columns: repeat(2, 1fr)
-        gap: 28px
+<style lang="sass" scoped>
+.projects_box
+    display: grid
+    grid-template-columns: repeat(2, 1fr)
+    gap: 28px
 
-    .news_footer
+.news_footer
+    display: flex
+    justify-content: center
+    padding-top: 61px
+    padding-bottom: 200px
+
+    &_pages
         display: flex
-        justify-content: center
-        padding-top: 61px
-        padding-bottom: 200px
+        gap: 20px
 
-        &_pages
-            display: flex
-            gap: 20px
+        &__link
+            position: relative
 
-            &__link
-                position: relative
-
-                &__page
-                    position: absolute
-                    left: 17px
-                    top: 15px
-                    color: #4D5053
-                    font-family: Jost
-                    font-size: 16px
-                    font-style: normal
-                    font-weight: 500
-                    line-height: 150%
-                    text-transform: capitalize
+            &__page
+                position: absolute
+                left: 17px
+                top: 15px
+                color: #4D5053
+                font-family: Jost
+                font-size: 16px
+                font-style: normal
+                font-weight: 500
+                line-height: 150%
+                text-transform: capitalize
 </style>

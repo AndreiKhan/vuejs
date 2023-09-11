@@ -1,10 +1,10 @@
 <template>
     <section class="blog_details_description">
-            <h1 class="blog_details_description__title">{{ blog.title }}</h1>
+            <h1 class="blog_details_description__title">{{ this.news[this.detailedBlog - 1].title }}</h1>
             <img class="blog_details_description__titleImg" src="../assets/blog_photo1.png" alt="blog_photo">
 
             <div class="blog_details_description_info">
-                <p class="blog_details_description_info__date">{{ blog.date }}</p>
+                <p class="blog_details_description_info__date">{{ this.news[this.detailedBlog - 1].date }}</p>
                 <p class="blog_details_description_info__bread">Interior / Home / Decore</p>
             </div>
 
@@ -35,30 +35,125 @@
             <img class="blog_details_description__subtitleImg" src="../assets/blog_photo2.png" alt="blog_photo">
 
             <p class="blog_details_description__text">Lorem ipsum dolor sit amet, adipiscing Aliquam eu sem vitae turpmaximus.posuere in.Contrary to popular belief.There are many variations of passages of Lorem Ipsum available, but the majority have suffered.</p>
-        </section>
+    </section>
 </template>
 
 <script>
 export default {
-    name: 'VueJsBlogInfo',
-    props : ['news'],
-
-    data() {
-        return {
-            blog: this.news[0],
-        };
-    },
-
-    mounted() {
-        
-    },
-
-    methods: {
-        
-    },
+    name: 'BlogInfo',
+    props : ['news', 'detailedBlog'],
 };
 </script>
 
-<style lang="sass">
+<style lang="sass" scoped>
+.blog_details_description
+    &__title
+        color: #292F36
+        font-family: DM Serif Display
+        font-size: 50px
+        font-style: normal
+        font-weight: 400
+        line-height: 125%
+        letter-spacing: 1px
+        margin-bottom: 21px
 
+    &__titleImg
+        border-radius: 50px
+        margin-bottom: 46px
+
+    &_info
+        display: flex
+        justify-content: space-between
+        margin-bottom: 48px
+
+        &__date
+            color: #4D5053
+            font-family: Jost
+            font-size: 16px
+            font-style: normal
+            font-weight: 400
+            line-height: 150%
+            letter-spacing: 0.16px
+            text-transform: capitalize
+
+        &__bread
+            color: #4D5053
+            font-family: Jost
+            font-size: 16px
+            font-style: normal
+            font-weight: 400
+            line-height: 150%
+            letter-spacing: 0.16px
+            text-transform: capitalize
+
+    &__text
+        color: #4D5053
+        font-family: Jost
+        font-size: 22px
+        font-style: normal
+        font-weight: 400
+        line-height: 150%
+        letter-spacing: 0.22px
+        margin-bottom: 35px
+
+    &_quote
+        display: flex
+        flex-direction: column
+        align-items: center
+        justify-content: center
+        height: 267px
+        margin-bottom: 27px
+        border-radius: 50px
+        background: #F4F0EC
+
+        &__text
+            color: #CDA274
+            text-align: center
+            font-family: DM Serif Display
+            font-size: 25px
+            font-style: italic
+            font-weight: 400
+            line-height: 125%
+            letter-spacing: 0.5px
+            width: 351px
+
+    &__subtitle
+        color: #292F36
+        font-family: DM Serif Display
+        font-size: 50px
+        font-style: normal
+        font-weight: 400
+        line-height: 125%
+        letter-spacing: 1px
+        margin-bottom: 20px
+
+    &__list
+        &__item
+            display: flex
+            gap: 14px
+            list-style-type: none
+            color: #4D5053
+            font-family: Jost
+            font-size: 22px
+            font-style: normal
+            font-weight: 400
+            line-height: 150%
+            letter-spacing: 0.22px
+            margin-bottom: 32px
+            width: 735px
+
+            &__number
+                list-style-position: inside
+                list-style-type: decimal
+                color: #CDA274
+                font-family: DM Serif Display
+                font-size: 20px
+                font-style: normal
+                font-weight: 400
+                line-height: 125%
+                letter-spacing: 0.4px
+                
+    &__subtitleImg
+        border-radius: 50px
+        margin-bottom: 35px
 </style>

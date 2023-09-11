@@ -1,9 +1,5 @@
 <template>
     <footer class="footer center">
-        <div class="background">
-            <div class="background_lines"></div>
-        </div>
-
         <div class="footer_main">
             <a class="footer_main__link" href="#">
                 <img class="footer_main__link__logo logo" src="../assets/logo.svg" alt="Logo">
@@ -23,12 +19,14 @@
                 </a>
             </div>
         </div>
+
         <div class="footer_pages">
             <h1 class="footer_pages__head">Pages</h1>
             <a class="footer_pages__link" href="#">Home</a>
             <a class="footer_pages__link" href="#">Project</a>
             <a class="footer_pages__link" href="#">Blog</a>
         </div>
+
         <div class="footer_contacts">
             <h1 class="footer_contacts__head">Contact</h1>
             <p class="footer_contacts__text">55 East Birchwood Ave. Brooklyn, New York 11201</p>
@@ -41,87 +39,74 @@
 <script>
 export default {
     name: 'FooterComp',
-
-    data() {
-        return {
-            
-        };
-    },
-
-    mounted() {
-        
-    },
-
-    methods: {
-        
-    },
 };
 </script>
 
 <style lang="sass" scoped>
-    .footer
+.footer
+    display: flex
+    padding-bottom: 134px
+
+    &_main
+        padding-right: 101px
+        
+        &__text
+            color: #4D5053
+            font-family: Jost
+            font-size: 22px
+            font-style: normal
+            font-weight: 400
+            line-height: 150%
+            letter-spacing: 0.22px
+            padding-bottom: 31px
+            width: 393px
+    
+        &_socials
+            display: flex
+            gap: 54px
+    
+    &_pages
         display: flex
-        padding-bottom: 134px
+        flex-direction: column
+        padding-right: 380px
 
-        &_main
-            padding-right: 101px
-            &__text
-                color: #4D5053
-                font-family: Jost
-                font-size: 22px
-                font-style: normal
-                font-weight: 400
-                line-height: 150%
-                letter-spacing: 0.22px
-                padding-bottom: 31px
-                width: 393px
+        &__head
+            color: #292F36
+            font-family: DM Serif Display
+            font-size: 25px
+            font-style: normal
+            font-weight: 400
+            line-height: 125%
 
-            &_socials
-                display: flex
-                gap: 54px
+        &__link
+            color: #4D5053
+            font-family: Jost
+            font-size: 22px
+            font-style: normal
+            font-weight: 400
+            line-height: 300%
+            letter-spacing: 0.22px
 
-        &_pages
-            display: flex
-            flex-direction: column
-            padding-right: 380px
-    
-            &__head
-                color: #292F36
-                font-family: DM Serif Display
-                font-size: 25px
-                font-style: normal
-                font-weight: 400
-                line-height: 125%
-    
-            &__link
-                color: #4D5053
-                font-family: Jost
-                font-size: 22px
-                font-style: normal
-                font-weight: 400
-                line-height: 300%
-                letter-spacing: 0.22px
-    
-        &_contacts
-            display: flex
-            flex-direction: column
-            gap: 25px
-    
-            &__head
-                color: #292F36
-                font-family: DM Serif Display
-                font-size: 25px
-                font-style: normal
-                font-weight: 400
-                line-height: 125%
-    
-            &__text
-                color: #4D5053
-                font-family: Jost
-                font-size: 22px
-                font-style: normal
-                font-weight: 400
-                line-height: 150%
-                letter-spacing: 0.22px
-                width: 258px
+    &_contacts
+        display: flex
+        flex-direction: column
+        gap: 25px
+
+        &__head
+            color: #292F36
+            font-family: DM Serif Display
+            font-size: 25px
+            font-style: normal
+            font-weight: 400
+            line-height: 125%
+
+        &__text
+            color: #4D5053
+            font-family: Jost
+            font-size: 22px
+            font-style: normal
+            font-weight: 400
+            line-height: 150%
+            letter-spacing: 0.22px
+            width: 258px
 </style>

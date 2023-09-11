@@ -1,9 +1,5 @@
 <template>
-  <div class="top">
-        <div class="background">
-            <div class="background_lines"></div>
-        </div>
-        
+    <div>
         <header class="header center">
             <div class="header_left">
                 <a class="header_left__link" href="#">
@@ -110,28 +106,28 @@
             </div>
         </main>
 
-        <div class="experience">
-            <div class="experience_numbers">
-                <div class="experience_numbers_unik">
-                    <h1 class="experience_numbers_unik__number">12</h1>
-                    <p class="experience_numbers_unik__text">Years Of Experiance</p>
-                </div>
-
-                <div class="experience_numbers_unik">
-                    <h1 class="experience_numbers_unik__number">85</h1>
-                    <p class="experience_numbers_unik__text">Success Project</p>
-                </div>
-
-                <div class="experience_numbers_unik">
-                    <h1 class="experience_numbers_unik__number">15</h1>
-                    <p class="experience_numbers_unik__text">Active Project</p>
-                </div>
-
-                <div class="experience_numbers_unik">
-                    <h1 class="experience_numbers_unik__number">95</h1>
-                    <p class="experience_numbers_unik__text">Happy CUstomers</p>
-                </div>
+        <div class="experience center">
+        <div class="experience_numbers">
+            <div class="experience_numbers_unik">
+                <h1 class="experience_numbers_unik__number">12</h1>
+                <p class="experience_numbers_unik__text">Years Of Experiance</p>
             </div>
+
+            <div class="experience_numbers_unik">
+                <h1 class="experience_numbers_unik__number">85</h1>
+                <p class="experience_numbers_unik__text">Success Project</p>
+            </div>
+
+            <div class="experience_numbers_unik">
+                <h1 class="experience_numbers_unik__number">15</h1>
+                <p class="experience_numbers_unik__text">Active Project</p>
+            </div>
+
+            <div class="experience_numbers_unik">
+                <h1 class="experience_numbers_unik__number">95</h1>
+                <p class="experience_numbers_unik__text">Happy CUstomers</p>
+            </div>
+        </div>
         </div>
 
         <section class="news center">
@@ -141,55 +137,12 @@
             </div>
 
             <div class="news_box">
-                <div class="news_box_element">
-                    <img class="news_box_element__img" src="../assets/news1.png" alt="news1">
-                    <a class="news_box_element__link"  href="#">Kitchan Design</a>
-
-                    <h2 class="news_box_element__title">Let’s Get Solution For Building Construction Work</h2>
-
-                    <div class="news_box_element_description">
-                        <p class="news_box_element_description__text">26 December,2022</p>
-                        <a class="news_box_element_description__link" href="#"><svg width="52" height="53" viewBox="0 0 52 53" fill="none" xmlns="http://www.w3.org/2000/svg">
-                            <circle cx="26" cy="26.267" r="26" fill="#F4F0EC"/>
-                            <path d="M23.7714 32.9527L29.7143 26.267L23.7714 19.5813" stroke="#292F36" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-                            </svg>
-                        </a>
-                    </div>
-                </div>
-
-                <div class="news_box_element">
-                    <img class="news_box_element__img" src="../assets/news2.png" alt="news2">
-                    <a class="news_box_element__link"  href="#">Living Design</a>
-
-                    <h2 class="news_box_element__title">Low Cost Latest Invented Interior Designing
-                        Ideas.</h2>
-
-                    <div class="news_box_element_description">
-                        <p class="news_box_element_description__text">22 December,2022 </p>
-                        <a class="news_box_element_description__link" href="#"><svg width="52" height="53" viewBox="0 0 52 53" fill="none" xmlns="http://www.w3.org/2000/svg">
-                            <circle cx="26" cy="26.267" r="26" fill="#F4F0EC"/>
-                            <path d="M23.7714 32.9527L29.7143 26.267L23.7714 19.5813" stroke="#292F36" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-                            </svg>
-                        </a>
-                    </div>
-                </div>
-
-                <div class="news_box_element">
-                    <img class="news_box_element__img" src="../assets/news3.png" alt="news3">
-                    <a class="news_box_element__link"  href="#">Interior Design</a>
-
-                    <h2 class="news_box_element__title">Best For Any Office & Business Interior 
-                        Solution</h2>
-
-                    <div class="news_box_element_description">
-                        <p class="news_box_element_description__text">25 December,2022 </p>
-                        <a class="news_box_element_description__link" href="#"><svg width="52" height="53" viewBox="0 0 52 53" fill="none" xmlns="http://www.w3.org/2000/svg">
-                            <circle cx="26" cy="26.267" r="26" fill="#F4F0EC"/>
-                            <path d="M23.7714 32.9527L29.7143 26.267L23.7714 19.5813" stroke="#292F36" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-                            </svg>
-                        </a>
-                    </div>
-                </div>
+                
+                <NewsList
+                v-for="item in news"
+                :news="item"
+                :key="item.id"
+                />
             </div>
         </section>
 
@@ -231,7 +184,279 @@
     </div>
 </template>
 
-<!-- Add "scoped" attribute to limit CSS to this component only -->
-<style scoped lang="sass">
+<script>
+import NewsList from './NewsList.vue';
 
+export default {
+    name: 'MainPage',
+
+    components: {
+        NewsList,
+    },
+
+    data() {
+        return {
+            news: [
+                {
+                    id: 1,
+                    img: 'news1.png',
+                    design: 'Kitchen',
+                    title: 'Let’s Get Solution For Building Construction Work',
+                    date: '26 December,2022',
+                    tag: ['Kitchen', 'Kitchen Planning', ''],
+                },
+                {
+                    id: 2,
+                    img: 'news2.png',
+                    design: 'Living',
+                    title: 'Low Cost Latest Invented Interior Designing Ideas',
+                    date: '22 December,2022',
+                    tag: ['Bedroom', ''],
+                },
+                {
+                    id: 3,
+                    img: 'news3.png',
+                    design: 'Interior',
+                    title: 'Best For Any Office & Business Interior Solution',
+                    date: '25 December,2022',
+                    tag: ['Building', 'Architecture', ''],
+                },
+                {
+                    id: 4,
+                    img: 'news4.png',
+                    design: 'Kitchen',
+                    title: 'Let’s Get Solution For Building Construction Work',
+                    date: '26 December,2022',
+                    tag: ['Kitchen', 'Kitchen Planning', ''],
+                },
+                {
+                    id: 5,
+                    img: 'news5.png',
+                    design: 'Living',
+                    title: 'Low Cost Latest Invented Interior Designing Ideas',
+                    date: '22 December,2022',
+                    tag: ['Bedroom', ''],
+                },
+                {
+                    id: 6,
+                    img: 'news6.png',
+                    design: 'Interior',
+                    title: 'Best For Any Office & Business Interior Solution',
+                    date: '25 December,2022',
+                    tag: ['Building', 'Architecture', ''],
+                },
+            ],
+        };
+    },
+};
+</script>
+
+<style lang="sass" scoped>
+.banner
+    &_description
+        display: flex
+        align-items: flex-start
+        flex-direction: column
+        justify-content: center
+
+        background-image: url(../assets/banner_photo1.png)
+        background-repeat: no-repeat
+        background-size: cover
+        background-position: 25% 0
+        border-radius: 50px
+
+        height: 758px
+
+        &_info
+            display: flex
+            width: 472px
+            flex-direction: column
+            align-items: flex-start
+            gap: 21px
+            padding-left: 52px
+
+            &__head
+                color: #292F36
+                font-family: DM Serif Display
+                font-size: 65px
+                font-style: normal
+                font-weight: 400
+
+            &__text
+                color: #4D5053
+                font-family: Jost
+                font-size: 22px
+                font-style: normal
+                font-weight: 400
+
+            &__startButton
+                color: #FFF
+                font-family: Jost
+                font-size: 18px
+                font-weight: 600
+
+                padding: 26px 49px 26px 48px
+
+                border-radius: 18px
+                background: #292F36
+                box-shadow: 0px 10px 20px 0px rgba(192, 192, 192, 0.35)
+
+.main
+    margin-top: 96px
+    margin-bottom: 96px
+
+    &_header
+        display: flex
+        flex-direction: column
+        text-align: center
+        align-items: center
+        margin-bottom: 93px
+
+        &__title
+            color: #292F36
+            text-align: center
+            font-family: DM Serif Display
+            font-size: 50px
+            font-style: normal
+            font-weight: 400
+            line-height: 125%
+            letter-spacing: 1px
+
+        &__text
+            color: #4D5053
+            text-align: center
+            font-family: Jost
+            font-size: 22px
+            font-style: normal
+            font-weight: 400
+            line-height: 150%
+            letter-spacing: 0.22px
+            width: 737px
+
+    &_box
+        display: flex
+        flex-direction: column
+        gap: 56px
+
+        &_line
+            display: flex
+            justify-content: space-between
+
+            &_product
+                display: flex
+                flex-direction: column
+                gap: 24px
+                width: 548px
+
+                .first_product
+                    border-top-right-radius: 50px
+
+                .second_product
+                    border-top-left-radius: 50px
+
+                .third_product
+                    border-bottom-right-radius: 50px
+
+                .fourth_product
+                    border-bottom-left-radius: 50px
+
+                &_description
+                    display: flex
+                    align-items: center
+                    justify-content: space-between
+
+                    &_text
+                        &__title
+                            color: #292F36
+                            font-family: DM Serif Display
+                            font-size: 25px
+                            font-style: normal
+                            font-weight: 400
+                            line-height: 125%
+                            letter-spacing: 0.5px
+
+                        &__text
+                            color: #4D5053
+                            font-family: Jost
+                            font-size: 22px
+                            font-style: normal
+                            font-weight: 400
+                            line-height: 150%
+                            letter-spacing: 0.22px
+
+.experience
+    display: flex
+    justify-content: center
+    background-color: #F4F0EC
+
+    height: 457px
+    margin-bottom: 96px
+
+    &_numbers
+        display: flex
+        align-items: center
+        gap: 76px
+
+        &_unik:not(:last-child)
+            border-right: 1px solid #CDA274
+
+        &_unik
+            display: flex
+            flex-direction: column
+            align-items: center
+            padding-right: 54px
+
+            &__number
+                color: #CDA274
+                font-family: DM Serif Display
+                font-size: 85px
+                font-style: normal
+                font-weight: 400
+                line-height: 125%
+                letter-spacing: 1.7px
+
+            &__text
+                color: #4D5053
+                font-family: Jost
+                font-size: 22px
+                font-style: normal
+                font-weight: 400
+                line-height: 150%
+                letter-spacing: 0.22px
+.news
+    padding-bottom: 96px
+
+    &_header
+        display: flex
+        flex-direction: column
+        text-align: center
+        align-items: center
+        padding-bottom: 52px
+
+        &__title
+            color: #292F36
+            text-align: center
+            font-family: DM Serif Display
+            font-size: 50px
+            font-style: normal
+            font-weight: 400
+            line-height: 125%
+            letter-spacing: 1px
+
+        &__text
+            color: #4D5053
+            text-align: center
+            font-family: Jost
+            font-size: 22px
+            font-style: normal
+            font-weight: 400
+            line-height: 150%
+            letter-spacing: 0.22px
+            width: 811px
+
+    &_box
+        display: grid
+        grid-template-columns: repeat(3, 1fr)
+        gap: 22px
+        justify-items: center
 </style>

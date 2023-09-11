@@ -46,40 +46,37 @@ export default {
 };
 </script>
 
-<style lang="sass">
+<style lang="sass" scoped>
+.projects_box_element
+    &__picture
+        position: relative
 
-    .projects_box_element
+        &__favorite
+            position: absolute
+            right: 0
 
-        &__picture
-            position: relative
+    &_description
+        padding-top: 24px
+        display: flex
+        justify-content: space-between
+        align-items: center
 
-            &__favorite
-                position: absolute
-                right: 0
-
-        &_description
-            padding-top: 24px
-            display: flex
-            justify-content: space-between
-            align-items: center
-
-            &_text
-                &__title
-                    color: #292F36
-                    font-family: DM Serif Display
-                    font-size: 25px
-                    font-style: normal
-                    font-weight: 400
-                    line-height: 125%
-                    letter-spacing: 0.5px
-
-                &__subtitle
-                    color: #4D5053
-                    font-family: Jost
-                    font-size: 22px
-                    font-style: normal
-                    font-weight: 400
-                    line-height: 150%
-                    letter-spacing: 0.22px
-
+        &_text
+            &__title
+                color: #292F36
+                font-family: DM Serif Display
+                font-size: 25px
+                font-style: normal
+                font-weight: 400
+                line-height: 125%
+                letter-spacing: 0.5px
+                
+            &__subtitle
+                color: #4D5053
+                font-family: Jost
+                font-size: 22px
+                font-style: normal
+                font-weight: 400
+                line-height: 150%
+                letter-spacing: 0.22px
 </style>

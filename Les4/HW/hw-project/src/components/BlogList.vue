@@ -1,33 +1,31 @@
 <template>
-    <main class="blog center">
-            <section class="blog_details">
-                <BlogInfo
-                :news="news"
-                ></BlogInfo>
+    <div class="blog center">
+        <section class="blog_details">
 
-                
-                <div class="news_header">
-                    <h1 class="news_header__title">Articles & News</h1>
-                </div>
-
-                <div class="news_box">
-                    <NewsList
-                    v-for="item in filteredList"
-                    :news="item"
-                    @detailes="detailes"
-                    :key="item.id"
-                    ></NewsList>
-                </div>
-            </section>
-
-            <div class="blog_tags">
-                <h1 class="blog_tags__title">Tags</h1>
-
-                <TagsFilter
-                @filteredTag="filteredTag"
-                ></TagsFilter>
+            <BlogInfo
+            :news="news"
+            :detailedBlog="detailedBlog"
+            />
+            
+            <div class="news_header">
+                <h1 class="news_header__title">Articles & News</h1>
             </div>
-    </main>
+
+            <div class="news_box">
+                
+                <NewsList
+                v-for="item in filteredList"
+                :news="item"
+                @detailes="detailes"
+                :key="item.id"
+                />
+            </div>
+        </section>
+        
+        <TagsFilter
+        @filteredTag="filteredTag"
+        />
+    </div>
 </template>
 
 <script>
@@ -37,7 +35,7 @@ import NewsList from './NewsList.vue'
 import TagsFilter from './TagsFilter.vue'
 
 export default {
-    name: 'VueJsBlogList',
+    name: 'BlogList',
 
     data() {
         return {
@@ -92,6 +90,7 @@ export default {
                 },
             ],
             filterTag: '',
+            detailedBlog: 1,
         };
     },
 
@@ -104,7 +103,7 @@ export default {
     computed: {
         filteredList() {
             return this.news.filter(item => item.tag.includes(this.filterTag))
-        }
+        },
     },
 
     methods: {
@@ -119,6 +118,32 @@ export default {
 };
 </script>
 
-<style lang="sass">
+<style lang="sass" scoped>
+.blog
+    display: grid
+    gap: 52px
+    grid-template-columns: 2fr 1fr
+    padding-top: 200px
 
+.news_header
+        display: flex
+        flex-direction: column
+        text-align: center
+        align-items: center
+        padding-bottom: 52px
+
+        &__title
+            color: #292F36
+            text-align: center
+            font-family: DM Serif Display
+            font-size: 50px
+            font-style: normal
+            font-weight: 400
+            line-height: 125%
+            letter-spacing: 1px
+.news_box
+    display: grid
+    grid-template-columns: repeat(2, 1fr)
+    gap: 30px
+    margin-bottom: 96px
 </style>

@@ -1,9 +1,5 @@
 <template>
-    <div class="top">
-        <div class="background">
-            <div class="background_lines"></div>
-        </div>
-
+    <div>
         <HeaderTitle :title="'Articles & News'" :page="'Home / Blog'" :active="true"/>
 
         <section class="latestPost center">
@@ -34,21 +30,12 @@
             </div>
 
             <div class="news_box">
-                <div v-for="el in news" :key="el.id" class="news_box_element">
-                    <img class="news_box_element__img" :src="require(`@/assets/${el.img}`)" alt="news_photo">
-                    <a class="news_box_element__link"  href="#">{{ el.design }}</a>
-
-                    <h2 class="news_box_element__title">{{ el.title }}</h2>
-
-                    <div class="news_box_element_description">
-                        <p class="news_box_element_description__text">{{ el.date }}</p>
-                        <a class="news_box_element_description__link" href="#"><svg width="52" height="53" viewBox="0 0 52 53" fill="none" xmlns="http://www.w3.org/2000/svg">
-                            <circle cx="26" cy="26.267" r="26" fill="#F4F0EC"/>
-                            <path d="M23.7714 32.9527L29.7143 26.267L23.7714 19.5813" stroke="#292F36" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-                            </svg>
-                        </a>
-                    </div>
-                </div>
+                
+                <NewsList
+                v-for="item in news"
+                :news="item"
+                :key="item.id"
+                />
             </div>
 
             <footer class="news_footer">
@@ -86,6 +73,7 @@
 
 <script>
 import HeaderTitle from './HeaderTitle.vue';
+import NewsList from './NewsList.vue';
 
 export default {
     name: 'BlogPage',
@@ -133,13 +121,15 @@ export default {
         };
     },
 
-    components: { HeaderTitle }
+    components: { 
+        HeaderTitle, 
+        NewsList, 
+    }
 };
 </script>
 
 <style lang="sass" scoped>
 .latestPost
-
     padding-top: 200px
 
     &__title
@@ -211,6 +201,21 @@ export default {
     &_header
         align-items: flex-start
         padding-bottom: 30px
+
+        &__title
+            color: #292F36
+            font-family: DM Serif Display
+            font-size: 50px
+            font-style: normal
+            font-weight: 400
+            line-height: 125%
+            letter-spacing: 1px
+
+    &_box
+        display: grid
+        grid-template-columns: repeat(3, 1fr)
+        gap: 22px
+        justify-items: center
 
     &_footer
         display: flex

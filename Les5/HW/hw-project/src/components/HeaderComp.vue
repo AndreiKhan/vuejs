@@ -1,9 +1,5 @@
 <template>
     <header class="header center">
-        <div class="background">
-            <div class="background_lines"></div>
-        </div>
-
         <div class="header_left">
             <a class="header_left__link" href="#">
                 <img class="header_left__link__logo logo" src="../assets/logo.svg" alt="Logo">
@@ -21,20 +17,6 @@
 <script>
     export default {
         name: 'HeaderComp',
-
-        data() {
-            return {
-
-            };
-        },
-
-        mounted() {
-
-        },
-
-        methods: {
-
-        },
     };
 </script>
 
@@ -43,7 +25,7 @@
         display: flex
         justify-content: space-between
         align-items: center
-        margin-top: 53px
+        padding-top: 53px
         padding-bottom: 57px
 
         &_right
