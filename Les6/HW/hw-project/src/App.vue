@@ -5,9 +5,9 @@
         </div>
   
         <HeaderComp/>
-        <!-- <MainPage/> -->
-        <!-- <BlogPage/> -->
-        <!-- <BlogDetails/> -->
+        <!-- <MainPage/>
+        <BlogPage/>
+        <BlogDetails/> -->
         <OurProjects/>
         <FooterComp/>
     </div>
