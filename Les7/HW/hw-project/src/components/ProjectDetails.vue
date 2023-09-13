@@ -5,19 +5,19 @@
         <div class="details center">
             <div class="details_description">
                 <h1 class="details_description__title">
-                    {{ this.projects[slide].title }}
+                    {{ projects[slide].title }}
                 </h1>
                 <p class="details_description__text">
                     Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquamsem vitae turpis dignissim maximus. Aliquam sollicitudin tellumassa, vbel maximus purus posuere in. Dojrices gravida dignissim. Praesent at nibh in mi fringilla mattis. Phasellus ut dolor odio. Aenean in the ipsum vel lectus bibendum commodo.
                 </p>
                 <p class="details_description__text">
-                    {{ this.projects[slide].description }}
+                    {{ projects[slide].description }}
                 </p>
             </div>
 
             <div class="details_view">
                 <div class="details_view_slide">
-                    <img class="details_view_slide__img" :src="require(`@/assets/${this.projects[slide].img}`)" alt="">
+                    <img class="details_view_slide__img" :src="require(`@/assets/${projects[slide].img}`)" alt="">
                     <svg class="details_view_slide__zoom" width="172" height="172" viewBox="0 0 172 172" fill="none" xmlns="http://www.w3.org/2000/svg">
                         <g filter="url(#filter0_d_1418_52)">
                             <circle cx="86" cy="76" r="66" fill="white"/>
@@ -41,7 +41,7 @@
                 <div class="details_view_numbers">
                     <button v-for="project in projects" 
                     class="details_view_numbers__number" 
-                    @click="slider(project)" 
+                    @click="SLIDER(project)" 
                     :class="{'current': project.slide}"
                     :key="project.id"
                     ></button>
@@ -52,49 +52,18 @@
 </template>
 
 <script>
+import { mapState, mapMutations } from 'vuex';
 import HeaderTitle from './HeaderTitle.vue';
 
 export default {
     name: 'ProjectDetails',
-    data() {
-        return {
-            projects: [
-                {
-                    id: 0,
-                    title: 'Minimal Look Bedrooms',
-                    description: 'In nec sem suscipit, convallis leo vitae, lacinia nibh. Cras amet tellus lectus. Vivamus ipsum nunc, mattis quis nibh id, pellentesque arcu. Donec a pellentesque Cras erat enim, gravida non ante vitae,elequis convallis elit, in viverra felis. Donec ultrices tellus vitae iaculisvd porta. Proin tincidunt ligula id purus porttitor.',
-                    img: 'slide_img.png',
-                    slide: true,
-                },
-                {
-                    id: 1,
-                    title: 'Minimal Look Kitchan',
-                    description: 'Lorem ipsum, dolor sit amet consectetur adipisicing elit. Unde optio magnam recusandae temporibus nostrum amet molestiae id voluptates harum dolores.',
-                    img: 'latestPost.png',
-                    slide: false,
-                },
-                {
-                    id: 2,
-                    title: 'Minimal Look Bathroom',
-                    description: 'Lorem ipsum dolor sit amet consectetur, adipisicing elit. Eum, nam?',
-                    img: 'project8.png',
-                    slide: false,
-                },
-            ],
-            slide: 0,
-        };
+
+    computed: {
+        ...mapState(['projects', 'slide']),
     },
 
     methods: {
-        slider(project) {
-            this.slide = project.id
-
-            this.projects.forEach(project => {
-                project.slide = false
-            });
-
-            project.slide = true
-        },
+        ...mapMutations(['SLIDER']),
     },
 
     components: { 
@@ -111,10 +80,9 @@ export default {
         padding-bottom: 100px
 
         &_description
-            height: 800px
+            height: 700px
             width: 658px
             padding-top: 170px
-            padding-bottom: 50px
 
             &__title
                 color: #292F36
